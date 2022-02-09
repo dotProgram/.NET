@@ -1,0 +1,1 @@
+﻿ALTER TABLE userBusinessDetails Add email NCHAR (40) NOT NULL;

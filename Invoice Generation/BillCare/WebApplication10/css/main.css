@@ -1,0 +1,127 @@
+/*.col-md-4-pic-id-2,col-md-4-pic-id-1,col-md-4-pic-id-3:hover{
+transform:rotate(30deg);
+}*/
+#col-md-12-id{
+	height:480px;
+	
+	background-color: whitesmoke;
+}
+.logo{
+
+margin-left:-5px;
+}
+.col-md-4
+{
+	overflow: hidden;
+width:100%; 
+height:480px;
+background-color:white; 
+border-right-color:lightgrey;
+border-right-radius:.005px;
+border-right-style:inset;
+
+}
+#navigation-div{
+width:100%; 
+height:50px;
+background-color:#0d83dd;
+//background-color:whitesmoke;
+}
+#corosal-div{
+width:100%; 
+height: auto;
+background-color:silver;
+
+}
+#div-below-col-md-4{
+width:100%; 
+height:450px;
+background-color:purple;
+}
+#down-courosal-1, #down-courosal-2, #down-courosal-3, #down-courosal-4{
+margin-top: 10px;
+margin-bottom: 10px;
+margin-left: 10px;
+margin-right: 10px;
+border-color: white;
+border-style:inset;
+border-width: 1px;
+height: 340px;
+background-color:red;
+border-radius: 5px;
+width: 250px;
+border-color: white;
+border-width: 1px;
+border-style: solid;
+
+}
+.down-courosal-divs-class{
+background-color:red;
+
+
+}
+#Div7{
+height:480px;
+
+background-color:whitesmoke;
+}
+
+.col-md-4-pic{
+margin-left: 8%;
+cursor: pointer;
+width:300px;
+height:300px;
+background-position: 100% 100%;
+border-radius: 50%;
+margin-top: 20px;
+transition: all .8s; 
+background-color:#e6f5ff;
+overflow: hidden;
+}
+.col-md-4-pic:hover{
+//transition: .5s ease-in-out; 
+ transform: scale(1.02); 
+//transform:rotate(360deg);	
+}
+#col-md-4-pic-id-1{
+	//background-position: 100% 100%;
+background-image:url("../images/4.png");	
+}
+#col-md-4-pic-id-2{
+	background-image:url("../images/5.png");
+}
+#col-md-4-pic-id-3{
+	background-image:url("../images/6.png");
+}
+#col-md-4-pic-id-4{
+background-position: centre;	
+	background-image:url("../images/88750_c444_7.jpg");
+}
+#col-md-4-pic-id-5{
+	background-image:url("../images/6.png");
+}
+#col-md-4-pic-id-6{
+	background-image:url("../images/qqq.jpg");
+}
+
+
+
+
+.col-md-4-text{
+
+width:50px
+height:50px;
+background-color:whitesmoke;
+}
+#footer{
+//background-color:#4E4B4B;
+background-color:#0f1726
+;
+color:white;
+width:100%;
+height:280px;
+}
+body{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}    
+

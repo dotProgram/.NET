@@ -1,0 +1,54 @@
+CREATE TABLE [db_users] (
+    [Id]       INT        IDENTITY (1, 1) NOT NULL,
+    [first_name] NCHAR (30) NOT NULL,
+	[last_name] NCHAR (30) NOT NULL,
+    [email]    NCHAR (40) NOT NULL,
+    [password] NCHAR (30) NOT NULL,
+    [country]  NCHAR (30) NOT NULL,
+	[state]  NCHAR (30) NOT NULL,
+	[city]  NCHAR (30) NOT NULL,
+	[street_1]  NCHAR (80) NULL,
+	[street_2]  NCHAR (80) NULL,
+	[pincode]  NCHAR (8) NOT NULL,
+	[phone]  NCHAR (10) NOT NULL,
+[final_rProcess] TINYINT    NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+alter table db_users modify final_rProcess tinyint null;
+alter table db_users alter final_rProcess tinyint null;
+alter table db_users add column [final_rProcess] TINYINT NULL;
+
+CREATE TABLE [userBusinessDetails] (
+    [Id]       INT        IDENTITY (1, 1) NOT NULL,
+    [company_name] NCHAR (30) NOT NULL,
+	[business_type] NCHAR (30) NOT NULL,
+    [financial_year]    NCHAR (10) NOT NULL,
+    [email] NCHAR (20) NOT NULL,
+    [b_country]  NCHAR (30) NOT NULL,
+	
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+
+(DateTime.Now);
+
+
+
+CREATE TABLE [db_clients] (
+    	[Id]       INT        IDENTITY (1, 1) NOT NULL,
+	[clientID] NCHAR (10) NOT NULL,
+	[ownerEmailID] NCHAR (30) NOT NULL,
+    	[first_name] NCHAR (30) NULL,
+	[last_name] NCHAR (30) NULL,
+    	[email]    NCHAR (40) NULL,
+    	
+    	[country]  NCHAR (30) NULL,
+	[state]  NCHAR (30) NULL,
+	[city]  NCHAR (30) NULL,
+	[street_1]  NCHAR (80) NULL,
+	[street_2]  NCHAR (80) NULL,
+	[pincode]  NCHAR (8) NOT NULL,
+	[phone]  NCHAR (10) NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);

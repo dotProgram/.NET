@@ -1,0 +1,321 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"passwo",
+				"password"
+			],
+			[
+				"h",
+				"h2\tTag"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"a",
+				"accessData"
+			],
+			[
+				"d",
+				"displayResult"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/DRIVE D/study/E-b00ks_2014/Computer Languages/Programming Languages/C# ASP.NET/MVC/Programmes/MS MVC EXAMPLE AcctCont.cs",
+		"/C/xampp/htdocs/project/adruno/readings.php",
+		"/C/xampp/htdocs/project/adruno/Web.config",
+		"/C/xampp/htdocs/ci/application/controllers/Welcome.php",
+		"/C/xampp/htdocs/project/adruno/user.php",
+		"/C/xampp/htdocs/project/register.php",
+		"/D/DRIVE D/study/E-b00ks_2014/Computer Languages/Programming Languages/C# ASP.NET/MVC/Programmes/Controllers/AccountController.cs",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/mailretriever00.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/cmpmail.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/inbox.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/register.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/connection.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/auth.php",
+		"/C/xampp/htdocs/adruno/connection.php",
+		"/C/xampp/htdocs/project/adruno/login.php",
+		"/C/xampp/htdocs/Bootstrap/911- SElf Razor CS.html",
+		"/C/xampp/htdocs/emailserver/mail/read/mailMessageRetriever.php",
+		"/C/xampp/htdocs/emailserver/mail/messageret.php",
+		"/C/xampp/htdocs/emailserver/db/connectionemail.php",
+		"/C/xampp/htdocs/emailserver/mail/cmpmail.php",
+		"/C/xampp/htdocs/emailserver/db/connectionDatabase.php",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/Web.config",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/Login.aspx",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/Login.aspx.cs",
+		"/C/xampp/htdocs/emailserver/db/register.php",
+		"/C/xampp/htdocs/emailserver/db/auth.php",
+		"/C/xampp/htdocs/emailserver/controller/connection.php",
+		"/C/xampp/htdocs/emailserver/mail/inbox.php",
+		"/C/xampp/htdocs/emailserver/db/databaseCreator.php",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/js/confirmReg.js",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/js/regis.js",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/databaseCreator.php",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/css/asPieProgress.min.css",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/css/asPieProgress.css",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.min.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.es.js",
+		"/C/xampp/htdocs/emailserver/css/mail.css",
+		"/C/xampp/htdocs/emailserver/css/main.css",
+		"/C/xampp/htdocs/emailserver/register.php",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/examples/index.html",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/examples/js/jquery.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/.csscomb.json",
+		"/C/xampp/htdocs/emailserver/css/mailreader.css",
+		"/C/xampp/htdocs/emailserver/sms/sms.php",
+		"/C/xampp/htdocs/emailserver/sms/new.php",
+		"/C/xampp/htdocs/emailserver/js/vali_login.js",
+		"/C/xampp/htdocs/emailserver/index.php",
+		"/C/xampp/htdocs/Bootstrap/01 WEB-Scroll-Spy.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/css/main.css",
+		"/C/xampp/htdocs/emailserver/js/captcha.js",
+		"/C/xampp/htdocs/Bootstrap/14- Validation State.html",
+		"/C/xampp/htdocs/Bootstrap/Column - Copy.html",
+		"/C/xampp/htdocs/Bootstrap/26 Panel.html",
+		"/C/xampp/apache/privkey.pem",
+		"/C/xampp/htdocs/emailserver/index.html",
+		"/C/xampp/htdocs/Bootstrap/17 - Alerts.html",
+		"/C/xampp/htdocs/Bootstrap/20- Badge.html",
+		"/C/xampp/htdocs/Bootstrap/18 - Progressbar.html",
+		"/C/xampp/htdocs/Bootstrap/13-webTable.html",
+		"/C/xampp/htdocs/Bootstrap/13- b- Stripped Table.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication9/WebApplication9/Web.config",
+		"/C/xampp/htdocs/Bootstrap/6 heading.html",
+		"/C/Users/Aaqib_2/AppData/Local/Temp/Temporary ASP.NET Files/root/8e6e6379/a628d5f/App_Web_4djbywop.0.cs",
+		"/C/xampp_7/apache/logs/httpd.pid",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/C#.sublime-settings",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/xampp/htdocs/Bootstrap/25 Cookbook.html",
+		"/C/xampp/htdocs/Bootstrap/Column.html",
+		"/C/xampp/htdocs/Bootstrap/24- container.html",
+		"/C/xampp/htdocs/Bootstrap/15- Form Control Sizing.html",
+		"/C/xampp/htdocs/Bootstrap/16 - Help Texting.html",
+		"/C/xampp/htdocs/Bootstrap/13- C Contexual class.html",
+		"/C/xampp/htdocs/Bootstrap/13-D Resopnsive tables.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/WebSites/WebSite8/App_Data/Registration.mdf",
+		"/C/Users/Aaqib_2/Documents/Reg.sdf",
+		"/C/Users/Aaqib_2/Documents/dbo.usee.sql",
+		"/C/xampp/htdocs/Bootstrap/tp1-hello world.html",
+		"/C/xampp/htdocs/Bootstrap/Off set columns.html",
+		"/C/xampp/htdocs/Bootstrap/Nesting columns.html",
+		"/C/xampp/htdocs/Bootstrap/5-Column ordering.html",
+		"/C/xampp/htdocs/Bootstrap/6 heading NORMAL HTML.html",
+		"/C/xampp/htdocs/Bootstrap/7-lead body.html",
+		"/C/xampp/htdocs/Bootstrap/7-lead body - Emphasis.html",
+		"/C/xampp/htdocs/Bootstrap/8- Abberivation.html",
+		"/C/xampp/htdocs/Bootstrap/9- Address.html",
+		"/C/xampp/htdocs/Bootstrap/10 BlackQuotes.html",
+		"/C/xampp/htdocs/Bootstrap/11 Lists OL UL.html",
+		"/C/xampp/htdocs/Bootstrap/12 CODE.html",
+		"/C/xampp/htdocs/Bootstrap/13-Bootstrap Tables.html",
+		"/C/xampp/htdocs/Bootstrap/Responsive column resets.html",
+		"/C/xampp/htdocs/Bootstrap/basic Imports.html"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Login.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

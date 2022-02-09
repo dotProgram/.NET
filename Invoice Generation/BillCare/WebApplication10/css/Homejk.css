@@ -1,0 +1,58 @@
+
+#col-md-12-id{
+max-height: 100%;	
+min-height: 680px;
+background-color: whitesmoke;
+}
+
+#home-main-div-left{
+min-height: 500px;
+background-color: white;
+}
+#home-main-div-right{
+min-height: 800px;
+background-color: silver;
+}
+.col-md-4
+{
+	overflow: hidden;
+width:100%; 
+height:480px;
+background-color:#9dca68; 
+border-color:white;
+border-radius:.51px;
+border-style:dashed;
+
+}
+#navigation-div{
+width:100%; 
+height:60px;
+background-color:#067b80;
+//background:linear-gradient(#99CCFF,#006699,steelblue,#CCFFFF);
+}
+
+#div-below-col-md-4{
+width:100%; 
+height:450px;
+background-color:purple;
+}
+#Login-div{
+padding:15px;
+border-radius:8px;
+width:450px; 
+height:360px;
+background-color:white;
+margin: 0 auto;
+margin-top:15%;
+//margin-right:20%;
+}
+
+#footer{
+background-color:silver;
+width:100%;
+height:280px;
+}
+body{
+
+}    
+

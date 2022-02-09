@@ -1,0 +1,610 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bor",
+				"border"
+			],
+			[
+				"padd",
+				"padding-top"
+			],
+			[
+				"pad",
+				"padding-left"
+			],
+			[
+				"ma",
+				"max-width"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"passwo",
+				"password"
+			],
+			[
+				"h",
+				"h2\tTag"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"border-c",
+				"border-color"
+			],
+			[
+				"a",
+				"accessData"
+			],
+			[
+				"d",
+				"displayResult"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Login.aspx",
+			"settings":
+			{
+				"buffer_size": 7624,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "using System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Web;\nusing System.Web.UI;\nusing System.Web.UI.WebControls;\nusing System.IO;\nusing System.Text;\nusing System.Data;\nusing iTextSharp.text;\n\nusing iTextSharp.text.pdf;\nusing iTextSharp.text.html.simpleparser;\nusing System.Data.SqlClient;\nusing System.Configuration;\npublic partial class pdfx : System.Web.UI.Page\n{\n    string reterivedClientNameGlobal;\n    protected void Page_Load(object sender, EventArgs e)\n    {\n    }\n\n    protected void Button1_Click(object sender, EventArgs e)\n    {\n        genInvoice();\n    }\n    private void genInvoice()\n    {\n/* ---------------- SQL CONNECTION TO GET CLIENT DETAILS------------------------*/\n                          \n        /* *****************************CODE Start ***************************/\n\n     \n        try\n        {\n\n            string clientID = \"sdf3r3\";\n            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[\"BCString\"].ConnectionString);\n            //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings[\"ONLINEbillcareConnectionString\"].ConnectionString);\n            conn.Open();\n            string ckeckuser = \"select count(*) from db_clients where clientID = '\" + clientID + \"'\";\n          \n            SqlCommand com = new SqlCommand(ckeckuser, conn);\n           // SqlCommand com2 = new SqlCommand(totalRegistered, conn);\n            int temp = Convert.ToInt32(com.ExecuteScalar().ToString());\n            //Response.Write(\"<br/>TRY Access No: \" + count + \"<br/>\");\n   \n            if (temp == 1)\n            {\n                try { \n                 Response.Write(\"<font color='green'><b>INSIDE TRUE IF</b><br></font>\");\n                // string retClientNameQuery = \"SELECT first_name from db_clients where clientID='\" + clientID + \"'\";\n                string retClientNameQuery = \"SELECT * from db_clients where Id = 1\";\n                SqlCommand retClientNameCommand = new SqlCommand(retClientNameQuery, conn);\n\n\n                    //************Single Value Return DQL Command\n                                 // string reterivedClientNameLocal = retClientNameCommand.ExecuteScalar().ToString();\n                    //************Single Value Return DQL Command\n\n\n                    //Session[\"new\"] = reterivedClientNameLocal;\n                    // OBTAIN *************** MULTIPLE VALUES******************\n                    using (SqlDataReader reader = retClientNameCommand.ExecuteReader())\n                    {\n                        reader.Read();\n                        string client_first_name = reader[\"first_name\"]?.ToString();\n                        string client_last_name = reader[\"last_name\"]?.ToString();\n                        string country = reader[\"country\"]?.ToString();\n                        string state = reader[\"state\"]?.ToString();\n                        string city = reader[\"city\"]?.ToString();\n                        string street_1 = reader[\"street_1\"]?.ToString();\n                        string street_2 = reader[\"street_2\"]?.ToString();\n                        string pincode = reader[\"pincode\"]?.ToString();\n\n                        Response.Write(\"<font color='pink'><b>\" + client_first_name +\"  \" + client_last_name +\"</b><br></font>\");\n                        this.reterivedClientNameGlobal = client_first_name + \" \";\n                        this.reterivedClientNameGlobal += client_last_name + \"<br>\";\n                        this.reterivedClientNameGlobal += street_1 + \"<br>\";\n                        //this.reterivedClientNameGlobal += street_2 + \"<br>\";\n                        this.reterivedClientNameGlobal += city.TrimEnd() + \", \";\n                        this.reterivedClientNameGlobal += state + \"<br>\";\n                        this.reterivedClientNameGlobal += country + \"<br>\";\n                        this.reterivedClientNameGlobal += pincode + \"<br>\";\n                    }\n\n\n\n\n                   // Response.Write(\"<font color='red'><b>\"+ reterivedClientNameLocal + \"</b><br></font>\");\n                    //this.reterivedClientNameGlobal = reterivedClientNameLocal;\n                    //Response.Write(\"<font color='orange'><b>Global Value\" + reterivedClientNameGlobal + \"</b><br></font>\");\n                   // this.reterivedClientNameGlobal = \" \" + \"temp true\";\n                }\n                catch (Exception exc)\n                {\n                    Response.Write(\"<font color='blue'> \"+ exc.ToString() + \" </ font ><br>\");\n                }\n\n\n\n\n            }\n            else\n            {\n\n                //this.reterivedClientNameGlobal = \" \" + \"temp Falase\";\n                Response.Write(\"<font color='red'>ELSE LOOP<b></b><br></font>\");\n            }\n\n\n            conn.Close();\n\n        }\n        catch (Exception exc)\n        {\n            //  Response.Write(\"<br/>DB Access No: \" + count + \"<br/>\");\n            // goto again;\n            //Response.Write(\"<br/>Error \" + exc.ToString() + \"<br/>\");\n          //  this.reterivedClientNameGlobal += \"inside Exception\";\n        }\n        finally\n        {\n\n            //Response.Write(\"<font color='blue'>&nbsp;Query Executed</font>\");\n           //this.reterivedClientNameGlobal += \"inside finally\";\n        }\n\n        /* ***************************** SQL CONNECTION TO GET CLIENT DETAILS CODE ENDS ************************** */\n      \n\n        /*PDF GEN CODE STARTS*/\n\n\n        // string companyName2 = \"Tour and Reavels\";\n        string clientName = this.reterivedClientNameGlobal;\n        int orderNo = 1234;\n        DataTable dt = new DataTable();\n        dt.Columns.AddRange(new DataColumn[6] {\n                            new DataColumn(\"No.\", typeof(string)),\n                            new DataColumn(\"Product\", typeof(string)),\n                            new DataColumn(\"Discription\", typeof(string)),\n                            new DataColumn(\"Price\", typeof(int)),\n                            new DataColumn(\"Units\", typeof(int)),\n                            new DataColumn(\"Total\", typeof(int))});\n\n\n        //DATA FOR ENTRING THE TABLE ROW -- START\n        dt.Rows.Add(101, \"Sun Glasses\", \"Discription\", 200, 5, 1000);\n        dt.Rows.Add(102, \"Jeans\", \"Discription\", 400, 2, 800);\n        dt.Rows.Add(103, \"Trousers\", \"Discription\", 300, 3, 900);\n        dt.Rows.Add(104, \"Shirts\", \"Discription\", 550, 2, 1100);\n        dt.Rows.Add(105, \"PShirts\", \"CDiscription\", 550, 2, 1100);\n\n        //--------------// VIA FOR LOOP\n        for (int i = 0; i <= 9; i++)\n        {\n            dt.Rows.Add(i, \"PShirts\", \"CDiscription\", 550, 2, 1100);\n        }\n        //DATA FOR ENTRING THE TABLE ROW -- Ends\n\n\n        using (StringWriter sw = new StringWriter())\n        {\n            using (HtmlTextWriter hw = new HtmlTextWriter(sw))\n            {\n                StringBuilder sb = new StringBuilder();\n\n\n                // sb.Append(\"<br />\");\n               \n\n                //sb.Append(\"<h1 bgcolor='#0085c3' align='center' color='red'>Invoice</h1>\");\n                sb.Append(\"<table width='100%' \");\n                sb.Append(\"<tr bgcolor='#666666'><td color='white' align='center'><h2 color='white'>Invoice</h2></td></tr>\");\n                sb.Append(\"</table>\");\n                sb.Append(\"<br />\");\n\n                //Generate Invoice (Bill) Header.\n                sb.Append(\"<table width='100%' cellspacing='0' cellpadding='3'>\");\n                //sb.Append(\"<tr bgcolor='#0085c3'><td color='white' align='center' style='background-color: red' colspan = '2'><b color='white'>Invoice</b></td></tr>\");\n\n                sb.Append(\"<tr><td><b>Order No: </b>\");\n                sb.Append(orderNo);\n                sb.Append(\"</td><td align = 'right'><b>Date: </b>\");\n                sb.Append(DateTime.Now);\n                sb.Append(\" </td></tr>\");\n                sb.Append(\"<tr><td colspan = '2'><b>Client: </b><br/>\");\n\n                sb.Append(\"<font size='3' color='#464e55'>\" + clientName + \"</font><br/>\");\n                /*\n                sb.Append(\"North Belford, California<br/>\");\n                sb.Append(\"192545<br/>\");*/\n                sb.Append(\"</td></tr>\");\n                sb.Append(\"</table>\");\n\n\n               \n                sb.Append(\"<br />\");\n                sb.Append(\"<br />\");\n                sb.Append(\"<br />\");\n                sb.Append(\"<br />\");\n                sb.Append(\"<br />\");\n\n\n                //Generate Invoice (Bill) Items Grid.\n                sb.Append(\"<table border = '.5'>\");\n                //sb.Append(\"<table width='100%' \");\n                //sb.Append(\"<col width='50'>\");\n                // sb.Append(\"<col width='200'>\");\n                //sb.Append(\"<col width='130'>\");\n                // sb.Append(\"<col width='80'>\");\n                // sb.Append(\"<col width='50'>\");\n                sb.Append(\"<tr> <b>\");// color='white' \n                int turn = 0;\n                foreach (DataColumn column in dt.Columns)\n                {\n                    turn++;\n                    if (turn == 1)\n                    {\n                        sb.Append(\"<th width='6%' bgcolor='#ededed' color='#011016' >\");\n                        sb.Append(column.ColumnName);\n                        sb.Append(\"</th> \");\n\n                    }\n\n                    else if (turn == 4 || turn == 6)\n                    {\n                        sb.Append(\"<th width='10%' bgcolor='#ededed' color='#011016' >\");\n                        sb.Append(column.ColumnName);\n                        sb.Append(\"</th> \");\n\n                    }\n                    else if (turn == 5)\n                    {\n                        sb.Append(\"<th width='6%' bgcolor='#ededed' color='#011016' >\");\n                        sb.Append(column.ColumnName);\n                        sb.Append(\"</th> \");\n\n                    }\n                    else if (turn == 2)\n                    {\n                        sb.Append(\"<th width='20%' bgcolor='#ededed' color='#011016' >\");\n                        sb.Append(column.ColumnName);\n                        sb.Append(\"</th> \");\n\n                    }\n                    else\n                    {\n\n                        sb.Append(\"<th bgcolor='#ededed' color='#011016' >\");\n                        sb.Append(column.ColumnName);\n                        sb.Append(\"</th> \");\n                    }\n                }\n                sb.Append(\"</b></tr>\");\n                foreach (DataRow row in dt.Rows)\n                {\n                    sb.Append(\"<tr>\");\n                    foreach (DataColumn column in dt.Columns)\n                    {\n                        sb.Append(\"<td>\");\n                        sb.Append(row[column]);\n                        sb.Append(\"</td>\");\n                    }\n                    sb.Append(\"</tr>\");\n                }\n                // Enter Extra six ROWS\n                for (int i = 0; i <= 15 - dt.Rows.Count; i++)\n                {\n                    sb.Append(\"<tr color='white'>\");\n                    for (int ik = 0; ik < dt.Columns.Count; ik++)\n                    {\n                        sb.Append(\"<td>\");\n                        sb.Append(\".\");\n                        sb.Append(\"</td>\");\n                    }\n                    sb.Append(\"</tr>\");\n                }\n                // Enter Extra six ROWS ENDS\n\n\n                sb.Append(\"<tr><td align = 'right' colspan = '\");\n                sb.Append(dt.Columns.Count - 1); // ORIGINAL sb.Append(dt.Columns.Count - 1);\n                sb.Append(\"'><b>Total</b></td>\");\n                sb.Append(\"<td>\");\n                sb.Append(dt.Compute(\"sum(Total)\", \"\"));\n                sb.Append(\"</td>\");\n                sb.Append(\"</tr></table>\");\n\n\n\n                //Export HTML String as PDF.\n                StringReader sr = new StringReader(sb.ToString());\n                Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);\n\n                HTMLWorker htmlparser = new HTMLWorker(pdfDoc);\n                PdfWriter writer = PdfWriter.GetInstance(pdfDoc, Response.OutputStream);\n                pdfDoc.Open();\n                //MY Lines\n                PdfContentByte cb = new PdfContentByte(writer);\n                BaseFont bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);\n                cb = new PdfContentByte(writer);\n                bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true);\n                cb = writer.DirectContent;\n                cb.BeginText();\n                cb.SetFontAndSize(bf, 10);\n                Rectangle pageSize = writer.PageSize;\n                cb.SetTextMatrix(pageSize.GetLeft(180), 40);\n                cb.ShowText(\"Thank you for choosing BillCare. © All Rights Reserved\");\n\n                cb.EndText();\n                //End\n\n\n                htmlparser.Parse(sr);\n                pdfDoc.Close();\n                Response.ContentType = \"application/pdf\";\n                Response.AddHeader(\"content-disposition\", \"attachment;filename=Invoice_\" + orderNo + \".pdf\");\n                Response.Cache.SetCacheability(HttpCacheability.NoCache);\n                Response.Write(pdfDoc);\n                Response.End();\n                \n            }\n        }\n      \n    }\n\n\n}",
+			"file": "PDF.aspx.cs",
+			"file_size": 13509,
+			"file_write_time": 131473547222066030,
+			"settings":
+			{
+				"buffer_size": 13213,
+				"encoding": "UTF-8 with BOM",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "css/navigation.css",
+			"settings":
+			{
+				"buffer_size": 802,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/App_Data",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/css"
+	],
+	"file_history":
+	[
+		"/C/xampp/htdocs/ci/application/views/help.php",
+		"/C/xampp/htdocs/ci/application/controllers/Welcome.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/cmpmail.php",
+		"/C/xampp/htdocs/ci/application/views/index.html",
+		"/C/xampp/htdocs/ci/application/controllers/Happy.php",
+		"/C/xampp/htdocs/ci/application/views/happy.php",
+		"/D/DRIVE D/study/E-b00ks_2014/Computer Languages/Programming Languages/C# ASP.NET/MVC/Programmes/MS MVC EXAMPLE AcctCont.cs",
+		"/C/xampp/htdocs/project/adruno/readings.php",
+		"/C/xampp/htdocs/project/adruno/Web.config",
+		"/C/xampp/htdocs/project/adruno/user.php",
+		"/C/xampp/htdocs/project/register.php",
+		"/D/DRIVE D/study/E-b00ks_2014/Computer Languages/Programming Languages/C# ASP.NET/MVC/Programmes/Controllers/AccountController.cs",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/mailretriever00.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/mail/inbox.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/register.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/connection.php",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/auth.php",
+		"/C/xampp/htdocs/adruno/connection.php",
+		"/C/xampp/htdocs/project/adruno/login.php",
+		"/C/xampp/htdocs/Bootstrap/911- SElf Razor CS.html",
+		"/C/xampp/htdocs/emailserver/mail/read/mailMessageRetriever.php",
+		"/C/xampp/htdocs/emailserver/mail/messageret.php",
+		"/C/xampp/htdocs/emailserver/db/connectionemail.php",
+		"/C/xampp/htdocs/emailserver/mail/cmpmail.php",
+		"/C/xampp/htdocs/emailserver/db/connectionDatabase.php",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/Web.config",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/Login.aspx",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/Login.aspx.cs",
+		"/C/xampp/htdocs/emailserver/db/register.php",
+		"/C/xampp/htdocs/emailserver/db/auth.php",
+		"/C/xampp/htdocs/emailserver/controller/connection.php",
+		"/C/xampp/htdocs/emailserver/mail/inbox.php",
+		"/C/xampp/htdocs/emailserver/db/databaseCreator.php",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/js/confirmReg.js",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/js/regis.js",
+		"/C/Users/Aaqib_2/Desktop/BillCare Server/email/db/databaseCreator.php",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/css/asPieProgress.min.css",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/css/asPieProgress.css",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.min.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/dist/jquery-asPieProgress.es.js",
+		"/C/xampp/htdocs/emailserver/css/mail.css",
+		"/C/xampp/htdocs/emailserver/css/main.css",
+		"/C/xampp/htdocs/emailserver/register.php",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/examples/index.html",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/examples/js/jquery.js",
+		"/C/xampp/htdocs/emailserver/Sample/jquery-asPieProgress-master/.csscomb.json",
+		"/C/xampp/htdocs/emailserver/css/mailreader.css",
+		"/C/xampp/htdocs/emailserver/sms/sms.php",
+		"/C/xampp/htdocs/emailserver/sms/new.php",
+		"/C/xampp/htdocs/emailserver/js/vali_login.js",
+		"/C/xampp/htdocs/emailserver/index.php",
+		"/C/xampp/htdocs/Bootstrap/01 WEB-Scroll-Spy.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication10/WebApplication10/css/main.css",
+		"/C/xampp/htdocs/emailserver/js/captcha.js",
+		"/C/xampp/htdocs/Bootstrap/14- Validation State.html",
+		"/C/xampp/htdocs/Bootstrap/Column - Copy.html",
+		"/C/xampp/htdocs/Bootstrap/26 Panel.html",
+		"/C/xampp/apache/privkey.pem",
+		"/C/xampp/htdocs/emailserver/index.html",
+		"/C/xampp/htdocs/Bootstrap/17 - Alerts.html",
+		"/C/xampp/htdocs/Bootstrap/20- Badge.html",
+		"/C/xampp/htdocs/Bootstrap/18 - Progressbar.html",
+		"/C/xampp/htdocs/Bootstrap/13-webTable.html",
+		"/C/xampp/htdocs/Bootstrap/13- b- Stripped Table.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/Projects/WebApplication9/WebApplication9/Web.config",
+		"/C/xampp/htdocs/Bootstrap/6 heading.html",
+		"/C/Users/Aaqib_2/AppData/Local/Temp/Temporary ASP.NET Files/root/8e6e6379/a628d5f/App_Web_4djbywop.0.cs",
+		"/C/xampp_7/apache/logs/httpd.pid",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/C#.sublime-settings",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Aaqib_2/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/xampp/htdocs/Bootstrap/25 Cookbook.html",
+		"/C/xampp/htdocs/Bootstrap/Column.html",
+		"/C/xampp/htdocs/Bootstrap/24- container.html",
+		"/C/xampp/htdocs/Bootstrap/15- Form Control Sizing.html",
+		"/C/xampp/htdocs/Bootstrap/16 - Help Texting.html",
+		"/C/xampp/htdocs/Bootstrap/13- C Contexual class.html",
+		"/C/xampp/htdocs/Bootstrap/13-D Resopnsive tables.html",
+		"/C/Users/Aaqib_2/Documents/Visual Studio 2012/WebSites/WebSite8/App_Data/Registration.mdf",
+		"/C/Users/Aaqib_2/Documents/Reg.sdf",
+		"/C/Users/Aaqib_2/Documents/dbo.usee.sql",
+		"/C/xampp/htdocs/Bootstrap/tp1-hello world.html",
+		"/C/xampp/htdocs/Bootstrap/Off set columns.html",
+		"/C/xampp/htdocs/Bootstrap/Nesting columns.html",
+		"/C/xampp/htdocs/Bootstrap/5-Column ordering.html",
+		"/C/xampp/htdocs/Bootstrap/6 heading NORMAL HTML.html",
+		"/C/xampp/htdocs/Bootstrap/7-lead body.html",
+		"/C/xampp/htdocs/Bootstrap/7-lead body - Emphasis.html",
+		"/C/xampp/htdocs/Bootstrap/8- Abberivation.html",
+		"/C/xampp/htdocs/Bootstrap/9- Address.html",
+		"/C/xampp/htdocs/Bootstrap/10 BlackQuotes.html",
+		"/C/xampp/htdocs/Bootstrap/11 Lists OL UL.html",
+		"/C/xampp/htdocs/Bootstrap/12 CODE.html",
+		"/C/xampp/htdocs/Bootstrap/13-Bootstrap Tables.html",
+		"/C/xampp/htdocs/Bootstrap/Responsive column resets.html",
+		"/C/xampp/htdocs/Bootstrap/basic Imports.html"
+	],
+	"find":
+	{
+		"height": 41.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mysqli_close($conn);",
+			"$databa",
+			"d_cc",
+			"INSERT INTO",
+			"uniqid",
+			"Label10",
+			"f_year",
+			"Label9",
+			"business_name",
+			"label192",
+			"phone",
+			"Label17",
+			"pincode",
+			"Label16",
+			"city",
+			"Label13",
+			"state",
+			"Label12",
+			"cpassword",
+			"Label11",
+			"password",
+			"email_id",
+			"Label10",
+			"ln",
+			"last_name",
+			"Label9",
+			"fn",
+			"first_name",
+			"one",
+			"mail-search-input",
+			"red",
+			"body_div-email",
+			"body_div-email-ret",
+			"1360px",
+			"button-outer-shell",
+			"2",
+			"1358",
+			"1360",
+			"body_div",
+			"%",
+			"px",
+			"width",
+			"min",
+			"max",
+			"#main",
+			"reg",
+			".jpg",
+			"min-width",
+			"70",
+			"250px",
+			"header_menu_buttons",
+			"inline-block",
+			"#f2f2f2",
+			"or",
+			"#f2f2f2",
+			"orange",
+			"orang",
+			"#3daf2c",
+			"#ef1e25",
+			"M80",
+			"M80,2 A78,78 0 1 1 79.99950991154603,2.000000001539661",
+			"2.000000001539661",
+			"M80,2 A78,78 0 1 1 79.99950991154603,2.000000001539661",
+			"<path fill=\"none\" stroke-width=\"4\" stroke=\"#ef1e25\" d=\"M80,2 A78,78 0 1 1 79.99950991154603,2.000000001539661\" style=\"stroke-dasharray: 490.157, 490.157; stroke-dashoffset: 0;\"></path>",
+			"fn",
+			"8",
+			"85",
+			"</option>",
+			"<option",
+			"col-md-12",
+			"6",
+			"              \n",
+			"insex",
+			"pin",
+			"bday",
+			"cc",
+			"is",
+			"captcha",
+			"alert(\"inside\");",
+			"number",
+			"pincode",
+			"city",
+			"pincode",
+			"state",
+			"password",
+			"pw",
+			"dont",
+			"password",
+			"pw",
+			"uderid",
+			"uid",
+			"fn",
+			"firstname",
+			"fn",
+			"eid",
+			"*",
+			"$checkUser",
+			"cc_id_destination",
+			"database_UID",
+			"cc",
+			";\n",
+			"number==1",
+			"cc",
+			"connDsest",
+			";",
+			".register ",
+			"register ",
+			"< /",
+			"v >",
+			"< /",
+			"v >",
+			"< /",
+			"yelt",
+			"yel",
+			"yely"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Label13",
+			"b_country",
+			"Label10",
+			"f_year",
+			"Label9",
+			"country",
+			"Label13",
+			"phone",
+			"Label17",
+			"pincode",
+			"Label16",
+			"city",
+			"Label13",
+			"state",
+			"Label12",
+			"cpassword",
+			"password",
+			"Label11",
+			"email",
+			"email_id",
+			"Label10",
+			"ln",
+			"last_name",
+			"1358px",
+			"</asp:ListItem>",
+			"<asp:ListItem",
+			"bday",
+			"//alert(\"inside\");",
+			"captcha",
+			"number",
+			"pincode",
+			"city",
+			"state",
+			"cpassword",
+			"cpw",
+			"password",
+			"pw",
+			"eid",
+			"email",
+			"uderid",
+			"uid",
+			"</",
+			"v>",
+			"</",
+			"v>",
+			"</"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Login.aspx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7624,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "PDF.aspx.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13213,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5338,
+								5338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5219.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "css/navigation.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 802,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "sublime.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 277.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

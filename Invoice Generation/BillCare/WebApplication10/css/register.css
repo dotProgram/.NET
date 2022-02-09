@@ -1,0 +1,82 @@
+
+
+#reg-rable{
+transition: all 1s; 
+}
+
+#reg-rable-confirm{
+transition: all 1s; 
+}
+.form-control
+{
+  margin-top: 3px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+#col-md-12-id{
+	height: 1021px;
+	
+	background-color: whitesmoke;
+}
+.col-md-4
+{
+overflow: hidden;
+width:100%; 
+height:480px;
+background-color:#9dca68; 
+border-color:white;
+border-radius:.51px;
+border-style:dashed;
+
+}
+#navigation-div{
+width:100%; 
+height:100px;
+background-color:#0085c3;
+}
+#corosal-div{
+width:100%; 
+height:400px;
+background-color:silver;
+
+}
+
+#Register-div{
+padding:40px;
+border-radius:8px;
+width:550px; 
+min-height: 950px;
+max-height: auto;
+background-color:white;
+margin: 0 auto;
+margin-top:1%;
+//margin-right:20%;
+
+}
+
+#Register-div-confirm{
+padding:40px;
+border-radius:8px;
+width:550px; 
+height:550px;
+background-color:white;
+margin: 0 auto;
+margin-top:1%;
+//margin-right:20%;
+
+}
+#form_street_add1, #form_street_add2{
+max-width:300px;
+min-width:300px;
+min-height:65px;
+max-height:80px;
+}
+#footer{
+background-color:silver;
+width:100%;
+height:280px;
+}
+body{
+
+}    
+
